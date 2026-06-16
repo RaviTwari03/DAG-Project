@@ -1,0 +1,117 @@
+/* node.css — shared node styles */
+
+/* ─── Container ───────────────────────────────────────────── */
+.node-container {
+  background: #ffffff;
+  border-radius: 14px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  border: 1px solid var(--color-border);
+  overflow: visible;
+  min-width: 200px;
+  transition: box-shadow 150ms ease, transform 150ms ease;
+  font-family: 'Inter', 'Poppins', sans-serif;
+}
+
+.node-container:hover {
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.14);
+  transform: scale(1.01);
+}
+
+/* ─── Header ──────────────────────────────────────────────── */
+.node-header {
+  padding: 8px 12px;
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  font-weight: 600;
+  font-size: 13px;
+  color: #ffffff;
+  border-radius: 13px 13px 0 0;
+}
+
+.node-header__icon {
+  font-size: 15px;
+  line-height: 1;
+}
+
+.node-header__title {
+  letter-spacing: 0.01em;
+}
+
+/* Per-node-type header colors (unique hues) */
+.node-header--customInput  { background: #4F46E5; }  /* indigo       */
+.node-header--customOutput { background: #7C3AED; }  /* violet       */
+.node-header--llm          { background: #0EA5E9; }  /* sky          */
+.node-header--text         { background: #10B981; }  /* emerald      */
+.node-header--api          { background: #F59E0B; }  /* amber        */
+.node-header--math         { background: #EF4444; }  /* red          */
+.node-header--filter       { background: #EC4899; }  /* pink         */
+.node-header--delay        { background: #6366F1; }  /* indigo-light */
+.node-header--email        { background: #14B8A6; }  /* teal         */
+
+/* ─── Body ────────────────────────────────────────────────── */
+.node-body {
+  padding: 10px 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+/* ─── Handle Rows ─────────────────────────────────────────── */
+.handle-row {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 2px 8px;
+  font-size: 11px;
+  color: #6B7280;
+  position: relative;
+}
+
+.handle-row--input {
+  justify-content: flex-start;
+}
+
+.handle-row--output {
+  justify-content: flex-end;
+}
+
+.handle-label {
+  font-size: 11px;
+  font-weight: 500;
+  color: #9CA3AF;
+  line-height: 1;
+  pointer-events: none;
+}
+
+/* Ensure ReactFlow handles sit at the edge of rows */
+.handle-row .react-flow__handle {
+  position: relative !important;
+  transform: none !important;
+  top: auto !important;
+  left: auto !important;
+  right: auto !important;
+  bottom: auto !important;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  border: 2px solid #fff;
+  background: #9CA3AF;
+  flex-shrink: 0;
+  transition: background 150ms ease, transform 150ms ease;
+}
+
+.handle-row .react-flow__handle:hover {
+  background: var(--color-primary);
+  transform: scale(1.2);
+}
+
+.handle-row--input .react-flow__handle {
+  background: #60A5FA;
+  border-color: #ffffff;
+}
+
+.handle-row--output .react-flow__handle {
+  background: #34D399;
+  border-color: #ffffff;
+}
